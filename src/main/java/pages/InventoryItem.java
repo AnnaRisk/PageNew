@@ -34,7 +34,7 @@ public class InventoryItem extends BasePage{
     public InventoryItem assertInventoryItemsCountIs(int num) {
         assertEquals(num, getInventoryItems().size(),
                 String.format("Должно быть %s товаров", num));
-        return this;1
+        return this;
     }
 
 

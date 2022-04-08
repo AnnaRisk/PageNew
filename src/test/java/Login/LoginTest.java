@@ -1,6 +1,6 @@
 package Login;
 
-import Config.Config;
+import сonfig.Config;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pages.pages;
-import Users.UsersCred;
+import users.UsersCred;
 
 @Epic("New user role")
 

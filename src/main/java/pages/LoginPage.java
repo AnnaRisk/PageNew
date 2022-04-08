@@ -1,7 +1,7 @@
 package pages;
 
 import extensions.Element;
-import Users.UsersCred;
+import users.UsersCred;
 import extensions.Driver;
 import io.qameta.allure.Step;
 

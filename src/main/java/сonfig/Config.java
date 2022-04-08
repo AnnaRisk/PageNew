@@ -1,4 +1,4 @@
-package Config;
+package сonfig;
 
 public class Config {
 

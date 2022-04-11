@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginPage extends BasePage {
 
 
-   public Element userNameInput = new Element(How.XPATH, "//*[@class=\\\"input_error form_input\\\"]");
+   public Element userNameInput = new Element(How.XPATH, "//*[@class=\"input_error form_input\"]");
     public  Element userPasswordInput = new Element(How.CSS, "#password");
     private Element loginButton = new Element(How.XPATH, "//input[@id='login-button']");
     private Element errorMessage = new Element(How.XPATH, "//h3[@data-test='error']");
@@ -46,7 +46,7 @@ public class LoginPage extends BasePage {
     @Step ("Click login button")
     public InventoryItem clickLoginButton() {
         loginButton.click();
-        return pages.inventoryList;
+        return Pages.inventoryList;
     }
 
     @Step ("Successfully logged in with user: {creds.username} {creds.password}")

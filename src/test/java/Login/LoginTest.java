@@ -1,5 +1,6 @@
 package Login;
 
+import pages.CheckOut;
 import сonfig.Config;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -8,7 +9,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import pages.pages;
+import pages.Pages;
 import users.UsersCred;
 
 @Epic("New user role")
@@ -25,13 +26,12 @@ public class LoginTest extends WebTest {
 
     @BeforeEach
     @Step("Open main page")
-
-    void setup(){
+    void setup() {
         creds = new UsersCred();
         creds.setUsername(Config.correctUsername);
         creds.setPassword(Config.correctPassword);
 
-        pages.login.open();
+        Pages.login.open();
 
     }
 
@@ -40,7 +40,7 @@ public class LoginTest extends WebTest {
     void CorrectLogin() {
 
 
-        pages.login.loginUserSuccess(creds)
+        Pages.login.loginUserSuccess(creds)
                 .assertInventoryItemsCountIs(goodsPerPage);
 
 
@@ -48,10 +48,99 @@ public class LoginTest extends WebTest {
 
     @Test
     void IncorrectLogin() {
-
-        pages.login.loginUserFailed(creds)
+        creds.setUsername(Config.incorrectUsername);
+        Pages.login.loginUserFailed(creds)
                 .assertErrorMessagePresent();
     }
 
+    @Test
+    void addToBasket() {
 
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket");
+    }
+
+    @Test
+    void delFromBasket() {
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket")
+                .removeClick()
+                .checkOrder("");
+    }
+
+    @Test
+    void checkOutInput() {
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket");
+        Pages.clickCheck
+                .clickCheckOut()
+                .checkHeader("CHECKOUT: YOUR INFORMATION")
+                .fillFirstName("Anna")
+                .fillLastName("Rain")
+                .zipCode("112233");
+    }
+
+    @Test
+    void clickCancel() {
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket");
+        Pages.clickCheck
+                .clickCheckOut()
+                .checkHeader("CHECKOUT: YOUR INFORMATION")
+                .fillFirstName("Anna")
+                .fillLastName("Rain")
+                .zipCode("112233")
+                .cancelClick();
+    }
+
+    @Test
+    void clickContinueError() {
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket");
+        Pages.clickCheck
+                .clickCheckOut()
+                .checkHeader("CHECKOUT: YOUR INFORMATION")
+                .continueClick()
+                .errorContinue();
+
+    }
+    @Test
+    void successCheckout() {
+        Pages.login.loginUserSuccess(creds);
+        Pages.checkButton
+                .clickButton1()
+                .clickAddButton()
+                .clickCart()
+                .checkOrder("Sauce Labs Fleece Jacket");
+        Pages.clickCheck
+                .clickCheckOut()
+                .checkHeader("CHECKOUT: YOUR INFORMATION")
+                .fillFirstName("Anna")
+                .fillLastName("Rain")
+                .zipCode("112233")
+                .continueClick()
+                .headerCheckout("Sauce Labs Fleece Jacket");
+
+    }
 }
+

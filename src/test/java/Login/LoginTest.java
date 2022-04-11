@@ -54,7 +54,7 @@ public class LoginTest extends WebTest {
     }
 
     @Test
-    void addToBasket() {
+    void addToCart() {
 
         Pages.login.loginUserSuccess(creds);
         Pages.checkButton
@@ -65,7 +65,7 @@ public class LoginTest extends WebTest {
     }
 
     @Test
-    void delFromBasket() {
+    void delFromCart() {
         Pages.login.loginUserSuccess(creds);
         Pages.checkButton
                 .clickButton1()
@@ -93,7 +93,7 @@ public class LoginTest extends WebTest {
     }
 
     @Test
-    void clickCancel() {
+    void clickCancelCheckOut() {
         Pages.login.loginUserSuccess(creds);
         Pages.checkButton
                 .clickButton1()

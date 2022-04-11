@@ -1,1 +1,9 @@
-сonfig\Config.class
+pages\BasePage.class
+pages\Cart.class
+extensions\Element.class
+pages\LoginPage.class
+pages\Pages.class
+pages\CheckOut.class
+extensions\Driver.class
+extensions\Element$1.class
+pages\InventoryItem.class

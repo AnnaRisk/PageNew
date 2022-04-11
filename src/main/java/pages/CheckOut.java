@@ -3,7 +3,7 @@ package pages;
 import extensions.Element;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.How;
-import users.CheckOutInfo;
+
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

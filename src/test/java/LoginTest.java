@@ -1,4 +1,4 @@
-package Login;
+import models.users.UsersCred;
 
 import pages.CheckOut;
 import сonfig.Config;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pages.Pages;
-import users.UsersCred;
+import models.users.UsersCred;
 
 @Epic("New user role")
 
@@ -18,7 +18,7 @@ import users.UsersCred;
 
 @Story("Inncorrect login")
 
-public class CheckLoginCart extends WebTest {
+public class LoginTest extends WebTest {
 
 
     public int goodsPerPage = 6;

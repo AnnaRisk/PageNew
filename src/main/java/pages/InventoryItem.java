@@ -3,14 +3,11 @@ package pages;
 import extensions.Element;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.util.List;
-
-
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

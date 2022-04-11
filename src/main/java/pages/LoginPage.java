@@ -1,15 +1,13 @@
 package pages;
 
 import extensions.Element;
-import users.UsersCred;
+import models.users.UsersCred;
 import extensions.Driver;
 import io.qameta.allure.Step;
 
 import org.openqa.selenium.support.How;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-
 
 public class LoginPage extends BasePage {
 

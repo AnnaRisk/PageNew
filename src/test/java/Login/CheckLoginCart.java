@@ -18,7 +18,7 @@ import users.UsersCred;
 
 @Story("Inncorrect login")
 
-public class LoginTest extends WebTest {
+public class CheckLoginCart extends WebTest {
 
 
     public int goodsPerPage = 6;

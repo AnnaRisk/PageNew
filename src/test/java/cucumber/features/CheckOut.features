@@ -1,0 +1,28 @@
+Feature: Add product to the cart and check chekout
+
+
+  Background:
+    And I am user with password "secret_sauce"
+
+
+  Scenario Outline: User add product to the cart
+    Given I am user with nickname "<User name>"
+    When I try to log in
+    Then I am on inventory page
+    And I chose the product and check it
+    Then I chose the product and click button Add to cart
+    And I click to the Cart
+    Then I click to the ChekOut button
+    And I check header on the CheckOut Page
+    Given I fill Information Check
+    And I click cancel and check InvenoryPage
+    Then I click to the ChekOut button
+    And I dont fill information and click Continue button
+    Given I fill Information Check
+    And I click Continue button and check Success checkout
+
+
+
+    Examples:
+      | User name     |
+      | standard_user |

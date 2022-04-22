@@ -1,0 +1,25 @@
+Feature: Add product to the cart
+
+
+  Background:
+    And I am user with password "secret_sauce"
+
+
+  Scenario Outline: User add product to the cart
+    Given I am user with nickname "<User name>"
+    When I try to log in
+    Then I am on inventory page
+    And I chose the product and check it
+    Then I chose the product and click button Add to cart
+    And I click to the Cart
+    Then I chose the product and click button Add to cart
+    And I click to the Cart
+    Then I check that the product in the cart
+    And I  click to remove button
+    Then I check that order is deleted
+
+
+
+    Examples:
+      | User name     |
+      | standard_user |

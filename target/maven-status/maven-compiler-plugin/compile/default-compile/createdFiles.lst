@@ -1,9 +1,13 @@
 pages\BasePage.class
 pages\Cart.class
-extensions\Element.class
+сonfig\Config.class
 pages\LoginPage.class
+models\users\Context.class
+pages\InventoryItem.class
+extensions\Element.class
 pages\Pages.class
+models\users\UserCredentials.class
 pages\CheckOut.class
 extensions\Driver.class
+models\users\CheckOutInfo.class
 extensions\Element$1.class
-pages\InventoryItem.class

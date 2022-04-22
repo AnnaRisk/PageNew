@@ -1,7 +1,5 @@
 package extensions;
 
-
-import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.How;
@@ -23,17 +21,17 @@ public class Element {
     }
 
     public void sendKeys(String s) {
-        Allure.step("Send \"" + s + "\" to element: " + by.toString());
+
         get().sendKeys(s);
     }
 
     public void click() {
-        Allure.step("Click element: " + by.toString());
+
         get().click();
     }
 
     public boolean isDisplayed() {
-        Allure.step("Get displayed property of element: " + by.toString());
+
         return get().isDisplayed();
     }
 

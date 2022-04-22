@@ -1,7 +1,7 @@
 package pages;
 
 
-import io.qameta.allure.Step;
+
 import org.openqa.selenium.support.How;
 import extensions.Element;
 
@@ -19,7 +19,7 @@ public class Cart extends BasePage {
 
 
 
-    @Step("Add to cart")
+
     public Cart clickButton1() {
         item_name.click();
         return Pages.checkButton;
@@ -41,7 +41,7 @@ public class Cart extends BasePage {
    }
 
 
-    @Step("Delete from cart")
+
 
     public Cart removeClick(){
         remove_order.click();

@@ -1,15 +1,14 @@
 package pages;
 
 import extensions.Element;
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 public class InventoryItem extends BasePage{
 
@@ -18,7 +17,7 @@ public class InventoryItem extends BasePage{
     private Element inventoryList = new Element(How.XPATH, "//div[contains(@class, 'inventory_list')]");
 
 
-    @Step("Try to find all inventory items")
+
     private List<WebElement> getInventoryItems() {
         return inventoryList.get().findElements(By.xpath("./div[contains(@class, 'inventory_item')]"));
     }
@@ -27,12 +26,14 @@ public class InventoryItem extends BasePage{
         URL += "/inventory.html";
     }
 
-    @Step("Assert that we can see {num} goods on the page")
+
     public InventoryItem assertInventoryItemsCountIs(int num) {
-        assertEquals(num, getInventoryItems().size(),
-                String.format("Должно быть %s товаров", num));
+        assertEquals(String.format("Должно быть %s товаров", num),
+                num, getInventoryItems().size());
         return this;
     }
 
-
+    public void assertIsOnPage() {
+        assertTrue(inventoryList.isDisplayed());
+    }
 }

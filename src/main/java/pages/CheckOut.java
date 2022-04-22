@@ -1,11 +1,12 @@
 package pages;
 
 import extensions.Element;
-import io.qameta.allure.Step;
+
 import org.openqa.selenium.support.How;
 
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
+
 
 public class CheckOut extends BasePage {
 
@@ -20,58 +21,58 @@ public class CheckOut extends BasePage {
     private Element checkout_header = new Element(How.XPATH, "//*[@class=\"error-message-container error\"]");
 
 
-    @Step("CheckOut click")
+
 
     public CheckOut clickCheckOut() {
         click_checkout.click();
         return Pages.clickCheck;
     }
 
-    @Step ("Check header")
+
     public CheckOut checkHeader(String header){
         check_header.equals(header);
         return this;
     }
 
-    @Step("Fill firstname input with value {s}")
+
     public CheckOut fillFirstName(String s) {
         firstname.sendKeys(s);
         return this;
 
     }
 
-    @Step("Fill lastname input with value {s}")
+
     public CheckOut fillLastName(String s) {
         lastname.sendKeys(s);
         return this;
     }
 
-    @Step("Fill zipcode input with value {s}")
+
     public CheckOut zipCode (String s) {
         zipcode.sendKeys(s);
         return this;
     }
 
-    @Step("Click cancel")
+
     public CheckOut cancelClick () {
         cancel_click.click();
         return Pages.clickCheck;
     }
 
 
-    @Step("Click continue")
+
     public CheckOut continueClick () {
         continue_click.click();
         return Pages.clickCheck;
     }
 
-    @Step("Assert error message")
+
     public CheckOut errorContinue(){
         assertTrue(error_continue.isDisplayed());
         return this;
     }
 
-    @Step ("Check header checkout")
+
     public CheckOut headerCheckout(String headercheck){
        checkout_header.equals(headercheck);
         return this;
